@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Donor Registration</title>
+    <style>
+        .navbar {
+    background-color: #8b0000;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+        :root {
+            --primary-color: #d32f2f; /* Updated to Red */
+            --primary-hover: #b71c1c; /* Darker Red */
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #cccccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Step Guide Bar */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            background: var(--card-bg);
+            padding: 0 10px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 8px auto;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Form Styles */
+        fieldset {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--primary-color);
+            padding: 0 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Donor Card (Hidden until submitted) */
+        #donorCardContainer {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .donor-card {
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff5f5; /* Light red tint */
+            max-width: 450px;
+            margin: 20px auto;
+            text-align: left;
+            position: relative;
+        }
+
+        .donor-card h3 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        .donor-card-details p {
+            margin-bottom: 8px;
+        }
+
+        .btn-print {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .step-label {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="eligibility.html">Eligibility</a>
+    <a href="registration.html">Registration</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <h1>Organ Donor Registration</h1>
+
+    <!-- 4-Step Process Bar -->
+    <div class="steps-container">
+        <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Learn</div>
+        </div>
+        <div class="step active">
+            <div class="step-number">2</div>
+            <div class="step-label">Register</div>
+        </div>
+        <div class="step" id="step3">
+            <div class="step-number">3</div>
+            <div class="step-label">Inform Family</div>
+        </div>
+        <div class="step" id="step4">
+            <div class="step-number">4</div>
+            <div class="step-label">Receive Card</div>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <form id="registrationForm" onsubmit="handleRegistration(event)">
+       
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" required>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" required>
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bloodGroup">Blood Group *</label>
+                    <select id="bloodGroup" required>
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Contact Information -->
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="+1234567890">
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Organs to Donate -->
+        <fieldset>
+            <legend>Organs/Tissues You Wish to Donate</legend>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><input type="checkbox" id="all" onchange="selectAll(this)"> <label for="all"><strong>All Organs & Tissues</strong></label></div>
+                <div class="checkbox-item"><input type="checkbox" class="organ" id="kidneys"> <label for="kidneys">Kidneys</label></div>
+                <div class="checkbox-item"><input type="checkbox" class="organ" id="heart"> <label for="heart">Heart</label></div>
+                <div class="checkbox-item"><input type="checkbox" class="organ" id="liver"> <label for="liver">Liver</label></div>
+                <div class="checkbox-item"><input type="checkbox" class="organ" id="lungs"> <label for="lungs">Lungs</label></div>
+                <div class="checkbox-item"><input type="checkbox" class="organ" id="eyes"> <label for="eyes">Eyes/Corneas</label></div>
+                <div class="checkbox-item"><input type="checkbox" class="organ" id="pancreas"> <label for="pancreas">Pancreas</label></div>
+            </div>
+        </fieldset>
+
+        <!-- Family/Emergency Contact & Declaration -->
+        <fieldset>
+            <legend>Step 3: Inform Family (Emergency Contact)</legend>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="kinName">Next of Kin / Family Member Name *</label>
+                    <input type="text" id="kinName" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="kinPhone">Family Member Phone *</label>
+                    <input type="tel" id="kinPhone" required placeholder="+1234567890">
+                </div>
+            </div>
+            <div class="form-group checkbox-item" style="margin-top: 10px;">
+                <input type="checkbox" id="familyAware" required>
+                <label for="familyAware">I confirm that I have informed my family members about my decision to register as an organ donor. *</label>
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn-submit">Complete Registration & Get Donor Card</button>
+    </form>
+
+    <!-- Step 4 Output: Donor Card -->
+    <div id="donorCardContainer">
+        <h2>Step 4: Receive Donor Card</h2>
+        <p>Registration Complete! Here is your Official Digital Organ Donor Card.</p>
+       
+        <div class="donor-card" id="printableCard">
+            <h3>ORGAN DONOR CARD</h3>
+            <div class="donor-card-details">
+                <p><strong>Name:</strong> <span id="cardName"></span></p>
+                <p><strong>Blood Group:</strong> <span id="cardBlood"></span></p>
+                <p><strong>Donor ID:</strong> <span id="cardId"></span></p>
+                <p><strong>Emergency Contact:</strong> <span id="cardKin"></span></p>
+                <hr style="margin: 10px 0;">
+                <p style="font-size: 0.85rem; font-style: italic;">
+                    "I have pledged to donate my organs/tissues to save lives. My family has been informed of my decision."
+                </p>
+            </div>
+        </div>
+
+        <button onclick="window.print()" class="btn-print">Print / Download Donor Card</button>
+    </div>
+</div>
+
+<script>
+    function selectAll(source) {
+        let checkboxes = document.querySelectorAll('.organ');
+        checkboxes.forEach(cb => cb.checked = source.checked);
+    }
+
+    function handleRegistration(event) {
+        event.preventDefault();
+        const name = document.getElementById('fullName').value;
+        const blood = document.getElementById('bloodGroup').value;
+        const kin = document.getElementById('kinName').value;
+        const kinPhone = document.getElementById('kinPhone').value;
+
+        document.getElementById('cardName').innerText = name;
+        document.getElementById('cardBlood').innerText = blood;
+        document.getElementById('cardKin').innerText = `${kin} (${kinPhone})`;
+        document.getElementById('cardId').innerText = 'OD-' + Math.floor(100000 + Math.random() * 900000);
+
+        document.getElementById('step3').classList.add('active');
+        document.getElementById('step4').classList.add('active');
+
+        document.getElementById('registrationForm').style.display = 'none';
+        document.getElementById('donorCardContainer').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

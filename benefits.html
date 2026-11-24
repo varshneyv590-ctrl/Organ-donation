@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benefits of Blood Donation</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .navbar {
+    background-color: #8b0000;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(225, 29, 72, 0.4); }
+      50% { box-shadow: 0 0 30px rgba(225, 29, 72, 0.8); }
+    }
+    .pulse-card {
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="eligibility.html">Eligibility</a>
+    <a href="registration.html">Registration</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-br from-rose-900 via-red-800 to-rose-950 text-white py-16 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <span class="inline-block bg-rose-700/60 backdrop-blur-md text-rose-200 border border-rose-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
+        Every Drop Counts
+      </span>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4 leading-tight">
+        The Power of Giving <br/><span class="text-rose-300">Blood Donation Benefits</span>
+      </h1>
+      <p class="text-lg md:text-xl text-rose-100 max-w-2xl mx-auto font-light">
+        Discover how a single 15-minute donation creates ripples of hope across patients, families, and global healthcare systems.
+      </p>
+
+      <!-- Stats Bar -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-10 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+        <div>
+          <p class="text-3xl font-extrabold text-white">1 Donation</p>
+          <p class="text-xs text-rose-200 uppercase tracking-wider mt-1">Saves Up To 3 Lives</p>
+        </div>
+        <div class="border-t sm:border-t-0 sm:border-l border-white/10 pt-3 sm:pt-0">
+          <p class="text-3xl font-extrabold text-white">Every 2 Sec</p>
+          <p class="text-xs text-rose-200 uppercase tracking-wider mt-1">Someone Needs Blood</p>
+        </div>
+        <div class="border-t sm:border-t-0 sm:border-l border-white/10 pt-3 sm:pt-0">
+          <p class="text-3xl font-extrabold text-white">100%</p>
+          <p class="text-xs text-rose-200 uppercase tracking-wider mt-1">Voluntary Gift</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE IMPACT CALCULATOR -->
+  <section class="max-w-5xl mx-auto -mt-8 relative z-20 px-6 mb-16">
+    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-100 pulse-card">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <span class="text-rose-600 font-bold text-xs uppercase tracking-wider">Interactive Tool</span>
+          <h2 class="text-2xl font-bold text-slate-900">Calculate Your Impact</h2>
+          <p class="text-slate-600 text-sm">See how many lives you can save by donating regularly.</p>
+        </div>
+
+        <div class="w-full md:w-1/2 space-y-4">
+          <div class="flex justify-between font-bold text-sm text-slate-700">
+            <span>Donations per year:</span>
+            <span id="donationCount" class="text-rose-600 font-extrabold text-lg">3 times</span>
+          </div>
+          <input id="donorSlider" type="range" min="1" max="4" value="3" 
+            class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-rose-600" 
+            oninput="updateImpact(this.value)" />
+          <div class="flex justify-between text-xs text-slate-400">
+            <span>1 / yr</span>
+            <span>2 / yr</span>
+            <span>3 / yr</span>
+            <span>4 / yr</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-slate-100 text-center">
+        <div class="bg-rose-50/70 p-4 rounded-xl">
+          <p class="text-xs font-semibold text-rose-700 uppercase">1 Year Impact</p>
+          <p id="lives1yr" class="text-2xl font-black text-rose-600 mt-1">9 Lives Saved</p>
+        </div>
+        <div class="bg-rose-50/70 p-4 rounded-xl">
+          <p class="text-xs font-semibold text-rose-700 uppercase">5 Year Impact</p>
+          <p id="lives5yr" class="text-2xl font-black text-rose-600 mt-1">45 Lives Saved</p>
+        </div>
+        <div class="bg-rose-500 text-white p-4 rounded-xl shadow-md">
+          <p class="text-xs font-semibold text-rose-100 uppercase">Lifetime Hero Tier</p>
+          <p id="badgeTier" class="text-2xl font-black mt-1">Lifesaver Star</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE 4 BENEFITS GRID -->
+  <main class="max-w-6xl mx-auto px-6 mb-20">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-slate-900">How Your Donation Makes a Difference</h2>
+      <p class="text-slate-600 mt-2">Four foundational pillars of impact powered by blood donors.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- 1. SAVES LIVES -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
+        <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+          <i data-lucide="heart-pulse" class="w-8 h-8"></i>
+        </div>
+        <span class="text-xs font-extrabold text-rose-600 tracking-wider uppercase">Pillar 01</span>
+        <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Saves Lives Immediately</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          A single pint of blood can be separated into red cells, plasma, and platelets to help multiple patients surviving trauma, surgeries, or chronic illnesses.
+        </p>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Emergency trauma & accident victims</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Cancer patients undergoing chemotherapy</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Patients undergoing complex surgical procedures</li>
+        </ul>
+      </div>
+
+      <!-- 2. HELPS FAMILIES -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
+        <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+          <i data-lucide="users" class="w-8 h-8"></i>
+        </div>
+        <span class="text-xs font-extrabold text-rose-600 tracking-wider uppercase">Pillar 02</span>
+        <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Helps Families Stay Together</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Behind every blood transfusion requirement is a family praying for more time. Your donation gives parents, children, and spouses the chance to celebrate future milestones.
+        </p>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Supports mothers during complicated childbirths</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Helps newborns and premature infants survive</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Relieves emotional and financial stress during medical crises</li>
+        </ul>
+      </div>
+
+      <!-- 3. IMPROVES HEALTHCARE -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
+        <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+          <i data-lucide="activity" class="w-8 h-8"></i>
+        </div>
+        <span class="text-xs font-extrabold text-rose-600 tracking-wider uppercase">Pillar 03</span>
+        <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Improves Healthcare Systems</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Blood cannot be manufactured artificially. A steady, dependable blood bank supply ensures hospitals can operate without critical delays during emergencies.
+        </p>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Prevents critical hospital blood shortages</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Strengthens disaster response readiness</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Sustains rare blood group registries</li>
+        </ul>
+      </div>
+
+      <!-- 4. CREATES SOCIAL IMPACT -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-rose-300 transition-all duration-300 group">
+        <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+          <i data-lucide="globe" class="w-8 h-8"></i>
+        </div>
+        <span class="text-xs font-extrabold text-rose-600 tracking-wider uppercase">Pillar 04</span>
+        <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Creates Lasting Social Impact</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Voluntary donation fosters unity and empathy in local communities, cutting across socio-economic, racial, and cultural boundaries to save fellow human beings.
+        </p>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Builds altruistic, compassionate communities</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Inspires youth and workplace donation drives</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500"></i> Unites citizens behind a shared altruistic goal</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- DONOR PERSONAL HEALTH PERKS -->
+  <section class="bg-slate-100 py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Bonus Advantage</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Health Benefits for You, the Donor</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+          <div class="w-12 h-12 mx-auto bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="stethoscope" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Mini Health Screening</h4>
+          <p class="text-slate-600 text-sm">Free check of pulse, blood pressure, temperature, and hemoglobin levels before every donation.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+          <div class="w-12 h-12 mx-auto bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Balances Iron Levels</h4>
+          <p class="text-slate-600 text-sm">Helps reduce harmful iron overload in the blood, promoting heart and liver health.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+          <div class="w-12 h-12 mx-auto bg-rose-50 text-rose-600 rounded-full flex items-center justify-center mb-4">
+            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-slate-900 mb-2">Stimulates Blood Cells</h4>
+          <p class="text-slate-600 text-sm">Triggers the bone marrow to generate fresh, vitalized red blood cells within days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="max-w-5xl mx-auto px-6 my-16">
+    <div class="bg-gradient-to-r from-rose-600 to-red-700 rounded-3xl p-10 text-white text-center shadow-xl relative overflow-hidden">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Ready to Save Lives Today?</h2>
+      <p class="text-rose-100 max-w-xl mx-auto mb-8">
+        It only takes 15 minutes to become someone's hero. Find a nearby blood donation center or drive now.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="openModal()" class="bg-white text-rose-700 font-extrabold px-8 py-3.5 rounded-xl shadow-lg hover:bg-rose-50 transition-colors">
+          Schedule Appointment
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL POPUP -->
+  <div id="bookingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <h3 class="text-2xl font-bold text-slate-900 mb-2">Schedule Donation</h3>
+      <p class="text-slate-600 text-sm mb-6">Enter your details to find an open slot near you.</p>
+
+      <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name</label>
+          <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-rose-600" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Blood Group</label>
+          <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-rose-600">
+            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+            <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+            <option>Don't Know</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Pincode / Location</label>
+          <input type="text" required placeholder="e.g. 110001" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-rose-600" />
+        </div>
+        <button type="submit" class="w-full bg-rose-600 text-white font-bold py-3 rounded-xl shadow-md hover:bg-rose-700 transition-colors mt-2">
+          Find Nearby Camps
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Impact Calculator Logic
+    function updateImpact(val) {
+      const perYear = parseInt(val);
+      document.getElementById('donationCount').innerText = perYear + (perYear === 1 ? ' time' : ' times');
+
+      const lives1 = perYear * 3;
+      const lives5 = perYear * 3 * 5;
+
+      document.getElementById('lives1yr').innerText = lives1 + ' Lives Saved';
+      document.getElementById('lives5yr').innerText = lives5 + ' Lives Saved';
+
+      let tier = 'Lifesaver Star';
+      if (perYear === 1) tier = 'Bronze Guardian';
+      else if (perYear === 2) tier = 'Silver Hero';
+      else if (perYear === 3) tier = 'Gold Champion';
+      else if (perYear === 4) tier = 'Platinum Legend';
+
+      document.getElementById('badgeTier').innerText = tier;
+    }
+
+    // Modal Control Logic
+    function openModal() {
+      document.getElementById('bookingModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Redirecting you to available donation slots in your area.');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
+
+

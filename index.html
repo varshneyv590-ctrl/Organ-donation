@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift of Life - Organ Donation Portal</title>
+    
+
+
+    <style>
+        .navbar {
+    background-color: #8b0000;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f8f9fa;
+        }
+
+        /* Navigation */
+        nav{
+            background:#c1121f;
+            padding:15px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        nav h2{
+            color:white;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+        }
+
+        nav ul li{
+            margin-left:25px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-size:16px;
+            font-weight:bold;
+        }
+
+        nav ul li a:hover{
+            color:#ffd60a;
+        }
+
+        /* Hero Section */
+        .hero{
+            height:90vh;
+            background:linear-gradient(rgba(0,0,0,0.5),
+            rgba(0,0,0,0.5)),
+            url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            color:white;
+        }
+
+        .hero-content{
+            max-width:800px;
+        }
+
+        .hero h1{
+            font-size:55px;
+            margin-bottom:20px;
+        }
+
+        .hero h3{
+            font-size:30px;
+            margin-bottom:15px;
+            color:#ffd60a;
+        }
+
+        .hero p{
+            font-size:18px;
+            line-height:1.6;
+            margin-bottom:25px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:12px 25px;
+            margin:10px;
+            border-radius:5px;
+            text-decoration:none;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .btn-primary{
+            background:#e63946;
+            color:white;
+        }
+
+        .btn-secondary{
+            background:white;
+            color:#c1121f;
+        }
+
+        .btn:hover{
+            opacity:0.9;
+        }
+
+        /* About Section */
+        .about{
+            padding:60px 80px;
+            text-align:center;
+        }
+
+        .about h2{
+            color:#c1121f;
+            margin-bottom:20px;
+        }
+
+        .about p{
+            max-width:900px;
+            margin:auto;
+            font-size:18px;
+            line-height:1.8;
+        }
+
+        /* Statistics Section */
+        .stats{
+            background:#ffffff;
+            padding:50px;
+            display:flex;
+            justify-content:space-around;
+            text-align:center;
+        }
+
+        .card{
+            background:#f1f1f1;
+            padding:25px;
+            border-radius:10px;
+            width:250px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h2{
+            color:#c1121f;
+            margin-bottom:10px;
+        }
+
+        /* Footer */
+        footer{
+            background:#c1121f;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        @media(max-width:768px){
+            nav{
+                flex-direction:column;
+            }
+
+            nav ul{
+                margin-top:10px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero h1{
+                font-size:38px;
+            }
+
+            .hero h3{
+                font-size:22px;
+            }
+
+            .stats{
+                flex-direction:column;
+                align-items:center;
+                gap:20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="eligibility.html">Eligibility</a>
+    <a href="registration.html">Registration</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+
+            <h1>Gift of Life</h1>
+
+            <h3>One Donor Can Save Many Lives</h3>
+
+            <p>
+                Welcome to the Organ Donation Awareness &
+                Registration Portal. Learn about organ donation,
+                understand the registration process, and inspire
+                hope by giving someone a second chance at life.
+            </p>
+
+            <a href="#" class="btn btn-primary">Become a Donor</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+
+        <h2>Why Organ Donation Matters?</h2>
+
+        <p>
+            Organ donation is the process of donating healthy organs
+            and tissues to help people suffering from organ failure.
+            A single donor can save multiple lives and improve the
+            quality of life for many others. By registering as an
+            organ donor, you can make a lasting impact on society.
+        </p>
+
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+
+        <div class="card">
+            <h2>8 Lives</h2>
+            <p>One donor can save up to 8 lives.</p>
+        </div>
+
+        <div class="card">
+            <h2>Thousands</h2>
+            <p>Patients are waiting for a transplant.</p>
+        </div>
+
+        <div class="card">
+            <h2>Hope</h2>
+            <p>Organ donation gives families a second chance.</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Donate Organs • Share Life • Create Hope</h3>
+        <p>© 2026 Gift of Life | Organ Donation Awareness Portal</p>
+    </footer>
+
+</body>
+</html>

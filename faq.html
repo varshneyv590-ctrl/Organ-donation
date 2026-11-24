@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - Organ Donation</title>
+
+<style>
+    .navbar {
+    background-color: #8b0000;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#c1121f;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.container{
+    width:80%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+h2{
+    text-align:center;
+    color:#c1121f;
+    margin-bottom:25px;
+}
+
+.faq{
+    background:white;
+    margin-bottom:15px;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+.question{
+    background:#fff;
+    padding:18px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.question:hover{
+    background:#ffe5e5;
+}
+
+.answer{
+    display:none;
+    padding:18px;
+    border-top:1px solid #ddd;
+    background:#fafafa;
+    line-height:1.6;
+}
+
+.icon{
+    color:#c1121f;
+    font-size:24px;
+}
+
+footer{
+    margin-top:40px;
+    background:#c1121f;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+    <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="eligibility.html">Eligibility</a>
+    <a href="registration.html">Registration</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+
+<header>
+    <h1>Frequently Asked Questions</h1>
+</header>
+
+<div class="container">
+
+    <h2>Organ Donation FAQs</h2>
+
+    <div class="faq">
+        <div class="question">
+            Can anyone donate organs?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            Most people can become organ donors regardless of age.
+            Medical professionals evaluate the donor's health and
+            suitability at the time of donation.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            Is there any cost for organ donation?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            No. Organ donation is free for the donor and their family.
+            All medical expenses related to organ recovery are covered
+            by the transplant organization.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            Can family members decide later?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            Yes. Family members may be consulted at the time of donation.
+            However, it is important to discuss your donation wishes with
+            your family in advance.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            Which organs can be donated?
+            <span class="icon">+</span>
+        </div>
+        <div class="answer">
+            Organs that can be donated include the heart, kidneys,
+            liver, lungs, pancreas, intestines, and tissues such as
+            corneas, skin, bones, and heart valves.
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Donate Organs • Save Lives • Create Hope</p>
+</footer>
+
+<script>
+
+const questions = document.querySelectorAll(".question");
+
+questions.forEach(question => {
+    question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector(".icon");
+
+        if(answer.style.display === "block"){
+            answer.style.display = "none";
+            icon.textContent = "+";
+        }
+        else{
+            answer.style.display = "block";
+            icon.textContent = "−";
+        }
+
+    });
+});
+
+</script>
+
+</body>
+</html>

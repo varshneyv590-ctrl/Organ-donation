@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donation - Eligibility Criteria & Myths</title>
+  <style>
+    .navbar {
+    background-color: #8b0000;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #ffd700;
+}
+
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #c0392b;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #e74c3c;
+      padding-bottom: 8px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    /* Cards Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fafafa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      color: #c0392b;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    /* Health Condition Badges */
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .badge-eligible { background: #d4edda; color: #155724; }
+    .badge-temporary { background: #fff3cd; color: #856404; }
+    .badge-permanent { background: #f8d7da; color: #721c24; }
+
+    /* Myths & Facts Accordion Style */
+    .myth-fact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .accordion-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      background-color: #fff0f0;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #c0392b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .accordion-header:hover {
+      background-color: #ffe5e5;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 15px 20px;
+      background-color: #f4fbf7;
+      border-top: 1px solid #ddd;
+    }
+
+    .accordion-content span.fact-label {
+      font-weight: bold;
+      color: #27ae60;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="benefits.html">Benefits</a>
+    <a href="eligibility.html">Eligibility</a>
+    <a href="registration.html">Registration</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+
+  <div class="container">
+    <h1>Blood Donor Eligibility Guidelines</h1>
+    <p class="subtitle">Check if you are eligible to save lives today</p>
+
+    <!-- SECTION 1: AGE & BASIC REQUIREMENTS -->
+    <h2>1. Basic Requirements & Age Limits</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><span>🎂</span> Age Criteria</h3>
+        <p><strong>Standard Range:</strong> 18 to 65 years old.</p>
+        <p>Must be at least 18 years of age to give legal consent for whole blood donation.</p>
+      </div>
+
+      <div class="card">
+        <h3><span>⚖️</span> Weight</h3>
+        <p><strong>Minimum Weight:</strong> 45 kg – 50 kg (depending on local regulations).</p>
+        <p>Ensures donor blood volume can safely handle standard unit extraction.</p>
+      </div>
+
+      <div class="card">
+        <h3><span>🩸</span> Hemoglobin & Vital Signs</h3>
+        <ul>
+          <li><strong>Hb Level:</strong> Minimum 12.5 g/dL</li>
+          <li><strong>Blood Pressure:</strong> 100-140/60-90 mmHg</li>
+          <li><strong>Pulse:</strong> 50 to 100 bpm</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTION 2: HEALTH CONDITIONS -->
+    <h2>2. Medical & Health Conditions</h2>
+    <div class="grid">
+      <!-- Eligible Conditions -->
+      <div class="card">
+        <span class="badge badge-eligible">Eligible / Allowed</span>
+        <h3>Allowed Conditions</h3>
+        <ul>
+          <li><strong>High BP:</strong> Allowed if controlled on daily medication.</li>
+          <li><strong>Diabetes:</strong> Allowed if controlled via oral medication or diet (non-insulin dependent).</li>
+          <li><strong>Minor Allergies:</strong> Allowed if currently asymptomatic.</li>
+        </ul>
+      </div>
+
+      <!-- Temporary Deferral -->
+      <div class="card">
+        <span class="badge badge-temporary">Temporary Wait Period</span>
+        <h3>Temporary Deferrals</h3>
+        <ul>
+          <li><strong>Tattoos / Piercings:</strong> Wait 6 to 12 months.</li>
+          <li><strong>Antibiotics / Infections:</strong> Wait 14 days after completion.</li>
+          <li><strong>Vaccinations:</strong> Wait 14 to 28 days depending on type.</li>
+          <li><strong>Pregnancy / Breastfeeding:</strong> Wait 12 months post-delivery.</li>
+        </ul>
+      </div>
+
+      <!-- Permanent Disqualification -->
+      <div class="card">
+        <span class="badge badge-permanent">Permanently Ineligible</span>
+        <h3>Permanent Exclusions</h3>
+        <ul>
+          <li><strong>Chronic Illnesses:</strong> Heart disease, kidney disease, or severe asthma.</li>
+          <li><strong>Bloodborne Infections:</strong> Positive for HIV, Hepatitis B, or Hepatitis C.</li>
+          <li><strong>Cancer:</strong> History of blood cancers (leukemia/lymphoma).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MYTHS VS FACTS -->
+    <h2>3. Common Myths & Facts</h2>
+    <div class="myth-fact-container">
+      
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          ❌ Myth: Donating blood causes permanent physical weakness or low immunity.
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <span class="fact-label">✔ Fact:</span>
+          Your body replaces the lost liquid volume within 24–48 hours, and red blood cells are fully restored within a few weeks. Donating blood does not weaken your immune system.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          ❌ Myth: You can contract diseases or infections like HIV while donating blood.
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <span class="fact-label">✔ Fact:</span>
+          All equipment used—including needles and blood bags—is completely sterile, single-use, and discarded immediately after donation. There is zero risk of contracting infections.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          ❌ Myth: Vegetarians or diabetics cannot donate blood.
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <span class="fact-label">✔ Fact:</span>
+          Vegetarians can donate as long as their hemoglobin level meets the minimum requirement (12.5 g/dL). Diabetics whose blood sugar is controlled with oral medication are also eligible.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          ❌ Myth: Taking daily prescription medications disqualifies you from donating.
+          <span class="icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <span class="fact-label">✔ Fact:</span>
+          Many common medications (such as blood pressure pills, birth control, or cholesterol drugs) do not disqualify you. Only specific drugs like blood thinners or acne medications require a wait period.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript for Interactive Accordion -->
+  <script>
+    function toggleAccordion(headerElement) {
+      const content = headerElement.nextElementSibling;
+      const icon = headerElement.querySelector('.icon');
+
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        icon.textContent = "+";
+      } else {
+        // Close all active accordions (Optional UI cleanup)
+        document.querySelectorAll('.accordion-content').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.icon').forEach(el => el.textContent = '+');
+
+        // Open selected accordion
+        content.style.display = "block";
+        icon.textContent = "-";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
